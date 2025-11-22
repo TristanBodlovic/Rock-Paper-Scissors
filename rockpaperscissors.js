@@ -17,8 +17,6 @@ function getComputerChoice() {
 }
 }
 
-
-
 function getHumanChoice() {
     let answer = prompt("Let's play ! Please enter rock, paper or scissors");
     if (answer) {
@@ -27,15 +25,14 @@ function getHumanChoice() {
     return "";
 }
 
-let humanScore = 0;
-let computerScore = 0;
+
 
 const computerSelection = getComputerChoice();
 const humanSelection = getHumanChoice();
 
-console.log("Votre choix: ", humanSelection);
-console.log("Choix de l'ordinateur: ", computerSelection);
-
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -53,8 +50,17 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-playRound(humanSelection, computerSelection);
+for (let i = 0; i < 5; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
 
-console.log(humanScore, computerScore)
+    console.log("Round", i);
+    console.log("Your Choice: ", humanSelection);
+    console.log("Computer's Choice: ", computerSelection);
+playRound(humanSelection, computerSelection);
+}
+}
+
+playGame(humanSelection, computerSelection);
 
 
